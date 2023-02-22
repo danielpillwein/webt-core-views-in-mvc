@@ -1,0 +1,16 @@
+{
+    "hotels": [
+      {
+        "name": "Grandiose Palace",
+        "description": "Experience unparalleled luxury and comfort at the Grandiose Palace, with its stunning architecture, impeccable service, and world-class amenities."
+      },
+      {
+        "name": "City Center Suites",
+        "description": "Stay in the heart of the city at City Center Suites, where you'll have easy access to top attractions, restaurants, and shopping districts."
+      },
+      {
+        "name": "Tranquil Resort & Spa",
+        "description": "Escape to the peaceful oasis of Tranquil Resort & Spa, where you can relax and rejuvenate with a range of spa treatments and wellness programs."
+      }
+    ]
+  }
