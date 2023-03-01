@@ -1,10 +1,10 @@
 <?php
-require './Hotel.php';
-class Hotel_Seeder
+namespace Dgl\WebtCoreViewsInMvc;
+class HotelSeeder
 {
     public function __construct() {}
     
-    public function getHotels(){
+    public static function getHotels(){
         $hotelsArray = [];
         $hotels = [
             [
@@ -51,7 +51,7 @@ class Hotel_Seeder
           
         foreach($hotels as $hotel){
             $hotelsArray[] = new Hotel($hotel['name'],$hotel['description'],$hotel['picture']);
-        }   
+        }
 
         return $hotelsArray;
     }

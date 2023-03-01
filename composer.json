@@ -1,0 +1,16 @@
+{
+    "name": "dgl/webt-core-views-in-mvc",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Dgl\\WebtCoreViewsInMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Quantompixel",
+            "email": "39237785+Quantompixel@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

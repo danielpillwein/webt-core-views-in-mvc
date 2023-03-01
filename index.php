@@ -1,13 +1,17 @@
 <?php
-require './Hotel_Seeder.php';
+require './vendor/autoload.php';
+
+use Dgl\WebtCoreViewsInMvc\Hotel;
+use Dgl\WebtCoreViewsInMvc\HotelSeeder;
 
 $index_template = file_get_contents('./templates/index.html');
 $hotels_HTML = '';
 
-$seeder = new Hotel_Seeder();
-$hotels = $seeder->getHotels();
+// $seeder = new HotelSeeder();
+$hotels = HotelSeeder::getHotels();
 
 foreach($hotels as $hotel){
+    /* @var $hotel Hotel*/
     $hotel_template = file_get_contents('./templates/hotel.html');
     $hotel_template = str_replace('###NAME###',$hotel->getName(),$hotel_template);
     $hotel_template = str_replace('###DESCRIPTION###',$hotel->getDescription(),$hotel_template);

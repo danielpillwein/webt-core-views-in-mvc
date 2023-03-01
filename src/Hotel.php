@@ -1,4 +1,5 @@
 <?php
+namespace Dgl\WebtCoreViewsInMvc;
 class Hotel
 {
     public function __construct(
@@ -7,15 +8,18 @@ class Hotel
         public string $imageLink
     ) {}
 
-    public function getName(){
+    public function getName(): string
+    {
         return $this->name;
     }
 
-    public function getDescription(){
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
-    public function getImageLink(){
+    public function getImageLink(): string
+    {
         return $this->imageLink;
     }
 }
