@@ -12,5 +12,7 @@
             "email": "39237785+Quantompixel@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "twig/twig": "^3.5"
+    }
 }

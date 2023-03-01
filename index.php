@@ -19,5 +19,17 @@ foreach($hotels as $hotel){
     $hotels_HTML .= $hotel_template;
 }
 
-echo str_replace('###HOTELS###',$hotels_HTML,$index_template);
+$loader = new \Twig\Loader\FilesystemLoader('./templates');
+$twig = new \Twig\Environment($loader);
+$template = $twig->load('index.html');
 
+echo $template->render([
+    'authors' => ['Dani','Luki','Gabriel'],
+    'navigation' => [[
+        'link' => 'https://www.booking.com/index.de.html',
+        'name' => 'Booking.com'
+    ],[
+        'link' => 'https://www.motel-one.com/de/',
+        'name' => 'MOTEL ONE'],
+    ]]
+);

@@ -1,0 +1,7 @@
+<header>
+    <nav>
+        {% for navItem in navigation %}
+        <a href="{{ navItem.link }}">{{ navItem.name }}</a>
+        {% endfor %}
+    </nav>
+</header>
