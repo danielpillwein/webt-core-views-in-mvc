@@ -35,17 +35,37 @@ main .hotel-wrapper {
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 3px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1em;
 }
 
-main .hotel-wrapper .title {
+main .hotel-wrapper .text-box {
+    width: 75%;
+}
+
+main .hotel-wrapper .text-box .title {
     color: #0171C2;
     margin-bottom: 0.5em;
 }
 
-main .hotel-wrapper .description {
+main .hotel-wrapper .text-box .description {
     font-size: 10pt;
     text-align: justify;
     hyphens: auto;
+}
+
+main .hotel-wrapper .image-container {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+main .hotel-wrapper .image-container .image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 @media screen and (min-width: 650px){

@@ -11,6 +11,7 @@ foreach($hotels as $hotel){
     $hotel_template = file_get_contents('./templates/hotel.html');
     $hotel_template = str_replace('###NAME###',$hotel->getName(),$hotel_template);
     $hotel_template = str_replace('###DESCRIPTION###',$hotel->getDescription(),$hotel_template);
+    $hotel_template = str_replace('###IMAGELINK###',$hotel->getImageLink(),$hotel_template);
     $hotels_HTML .= $hotel_template;
 }
 
