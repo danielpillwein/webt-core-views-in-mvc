@@ -1,0 +1,11 @@
+{% for hotel in hotels %}
+<div class="hotel-wrapper">
+    <figure class="image-container">
+        <img class="image" src="{{ hotel.ImageLink }}" alt="image of hotel">
+    </figure>
+    <div class="text-box">
+        <h2 class="title">{{ hotel.name }}</h2>
+        <p class="description">{{ hotel.description }}</p>
+    </div>
+</div>
+{% endfor %}

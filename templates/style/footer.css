@@ -1,0 +1,24 @@
+footer{
+    height: 80px;
+    width: 100%;
+    background-color: #555555;
+}
+
+.authors{
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    color: #f5f5f5;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.authors > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
