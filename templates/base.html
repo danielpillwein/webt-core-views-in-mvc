@@ -9,11 +9,15 @@
     <title>Hotels</title>
 </head>
 <body>
-    {% include './header.html' %}
-    <h1>Most Famous Hotels</h1>
-    <main>
-        {% include './hotels.html' %}
-    </main>
-    {% include './footer.html' %}
+    {% block header %}
+        {% include './header.html' %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include './footer.html' %}
+    {% endblock %}
 </body>
 </html>
