@@ -1,23 +1,55 @@
 <?php
 require './vendor/autoload.php';
 
-use Dgl\WebtCoreViewsInMvc\Hotel;
-use Dgl\WebtCoreViewsInMvc\HotelSeeder;
+/*
+ * This file belongs to the package "TYPO3 Fluid".
+ * See LICENSE.txt that was shipped with this package.
+ */
 
-$index_template = file_get_contents('./templates/index.html');
-$hotels_HTML = '';
+/**
+ * EXAMPLE: Variables usage
+ *
+ * This example shows you how to use variables in
+ * the Fluid template language and illustrates
+ * how dynamic variable access works.
+ */
 
-// $seeder = new HotelSeeder();
-$hotels = HotelSeeder::getHotels();
+// set up paths object with arrays of paths with files
+// $paths = new \TYPO3Fluid\Fluid\View\TemplatePaths();
+// $paths->setTemplateRootPaths(['./Resources/Private/Templates']);
+// $paths->setLayoutRootPaths(['./Resources/Private/Layouts']);
+// $paths->setPartialRootPaths(['./Resources/Private/Partials']);
+// pass the constructed TemplatePaths instance to the View
+$view = new \TYPO3Fluid\Fluid\View\TemplateView();
 
-foreach($hotels as $hotel){
-    /* @var $hotel Hotel*/
-    $hotel_template = file_get_contents('./templates/hotel.html');
-    $hotel_template = str_replace('###NAME###',$hotel->getName(),$hotel_template);
-    $hotel_template = str_replace('###DESCRIPTION###',$hotel->getDescription(),$hotel_template);
-    $hotel_template = str_replace('###IMAGELINK###',$hotel->getImageLink(),$hotel_template);
-    $hotels_HTML .= $hotel_template;
-}
+$view->assignMultiple([
+    // Casting types
+    'types' => [
+        'csv' => 'one,two',
+        'aStringWithNumbers' => '132 a string',
+        'anArray' => ['one', 'two'],
+        'typeNameInteger' => 'integer'
+    ],
+    'foobar' => 'string foo',
+    // The variables we will use as dynamic part names:
+    // Strings we will be accessing dynamically:
+    // Arrays we will be accessing dynamically:
+    'array' => [
+        'fixed' => 'Fixed key in $array[fixed]',
+        // A numerically indexed array which we will access directly.
+        'numeric' => [
+            'foo',
+            'bar'
+        ],
+    ],
+    '123numericprefix' => 'Numeric prefixed variable',
+    // A variable whose value refers to another variable name
+    'dynamicVariableName' => 'foobar'
+]);
 
-echo str_replace('###HOTELS###',$hotels_HTML,$index_template);
+$paths = $view->getTemplatePaths();
+$paths->setTemplatePathAndFilename(__DIR__ . '/Resources/Private/Templates/Variables.html');
 
+$output = $view->render();
+
+echo $output;

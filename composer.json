@@ -12,5 +12,7 @@
             "email": "39237785+Quantompixel@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "typo3fluid/fluid": "^2.7"
+    }
 }
