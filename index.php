@@ -10,6 +10,7 @@ $hotels = HotelSeeder::getHotels();
 // which contains a RenderingContext that in turn contains things like definitions
 // of template paths, instances of variable containers and similar.
 $view = new \TYPO3Fluid\Fluid\View\TemplateView();
+
 // TemplatePaths object: a subclass can be used if custom resolving is wanted.
 $paths = $view->getTemplatePaths();
 // Assigning the template path and filename to be rendered. Doing this overrides
@@ -39,7 +40,8 @@ $view->assignMultiple([
         'name' => 'Agoda'
         ]
     ],
-    'hotels' => $hotels
+    'hotels' => $hotels,
+    'layout' => 'TwoColumn'
     ]
 );
 // Rendering the View: plain old rendering of single file, no bells and whistles.
