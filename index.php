@@ -4,8 +4,7 @@ require './vendor/autoload.php';
 use Dgl\WebtCoreViewsInMvc\Hotel;
 use Dgl\WebtCoreViewsInMvc\HotelSeeder;
 
-$hotels[] = new Hotel("Wynn", "asdfsa", "asdfsa");
-$hotels[] = new Hotel("Excalibur", "dsafa", "sdfasdf");
+$hotels = HotelSeeder::getHotels();
 
 // Initializing the View: rendering in Fluid takes place through a View instance
 // which contains a RenderingContext that in turn contains things like definitions
@@ -15,8 +14,9 @@ $view = new \TYPO3Fluid\Fluid\View\TemplateView();
 $paths = $view->getTemplatePaths();
 // Assigning the template path and filename to be rendered. Doing this overrides
 // resolving normally done by the TemplatePaths and directly renders this file.
-$paths->setTemplatePathAndFilename('resources/templates/main.html');
+$paths->setTemplatePathAndFilename('resources/templates/base.html');
 $paths->setPartialRootPaths(['resources/partials/']);
+$paths->setLayoutRootPaths(['resources/layouts/']);
 // In this example we assign all our variables in one array. Alternative is
 // to repeatedly call $view->assign('name', 'value').
 $view->assignMultiple([
@@ -38,7 +38,8 @@ $view->assignMultiple([
         'link' => 'https://www.agoda.com',
         'name' => 'Agoda'
         ]
-    ]
+    ],
+    'hotels' => $hotels
     ]
 );
 // Rendering the View: plain old rendering of single file, no bells and whistles.

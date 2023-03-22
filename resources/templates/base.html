@@ -7,8 +7,14 @@
     <title>Fluid Demo</title>
 </head>
 <body>
+
     <f:render partial="Header" arguments="{navigation: navigation}"/>
-    
+    <h1>Most Famous Hotels</h1>
+    <main>
+        <f:for each="{hotels}" as="hotel">
+                <f:render partial="Hotel" arguments="{hotel: hotel}"/>
+            </f:for>
+    </main>
     <f:render partial="Footer" arguments="{authors: authors}"/>
 </body>
 </html>
