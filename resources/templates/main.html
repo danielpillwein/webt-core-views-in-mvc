@@ -3,15 +3,12 @@
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="resources\style.css">
     <title>Fluid Demo</title>
 </head>
 <body>
-
-<f:for each="{hotels}" as="hotel">
-    {hotel.name}
-</f:for>
-
-<f:render partial="Header" />
-
+    <f:render partial="Header" arguments="{navigation: navigation}"/>
+    
+    <f:render partial="Footer" arguments="{authors: authors}"/>
 </body>
 </html>

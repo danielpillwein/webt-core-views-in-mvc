@@ -19,8 +19,27 @@ $paths->setTemplatePathAndFilename('resources/templates/main.html');
 $paths->setPartialRootPaths(['resources/partials/']);
 // In this example we assign all our variables in one array. Alternative is
 // to repeatedly call $view->assign('name', 'value').
-$view->assignMultiple(
-    ['hotels' => $hotels]
+$view->assignMultiple([
+    'authors' => ['Dani','|','Luki','|','Gabriel'],
+    'navigation' => [
+        [
+        'link' => 'https://www.booking.com',
+        'name' => 'Booking.com'
+        ],
+        [
+        'link' => 'https://www.expedia.com',
+        'name' => 'Expedia'
+        ],
+        [
+        'link' => 'https://www.hotels.com',
+        'name' => 'Hotels.com'
+        ],
+        [
+        'link' => 'https://www.agoda.com',
+        'name' => 'Agoda'
+        ]
+    ]
+    ]
 );
 // Rendering the View: plain old rendering of single file, no bells and whistles.
 $output = $view->render();

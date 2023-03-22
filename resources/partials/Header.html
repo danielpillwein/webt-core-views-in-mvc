@@ -1,1 +1,7 @@
-header
+<header>
+    <nav>
+        <f:for each="{navigation}" as="navItem">
+            <a href="{navItem.link}">{navItem.name}</a>
+        </f:for>
+    </nav>
+</header>
