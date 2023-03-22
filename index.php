@@ -11,20 +11,14 @@ if (isset($_GET['Columns'])){
     $layout = strcmp($_GET['Columns'],'1')?'TwoColumn':'OneColumn';
 }
 
-// Initializing the View: rendering in Fluid takes place through a View instance
-// which contains a RenderingContext that in turn contains things like definitions
-// of template paths, instances of variable containers and similar.
 $view = new \TYPO3Fluid\Fluid\View\TemplateView();
 
-// TemplatePaths object: a subclass can be used if custom resolving is wanted.
 $paths = $view->getTemplatePaths();
-// Assigning the template path and filename to be rendered. Doing this overrides
-// resolving normally done by the TemplatePaths and directly renders this file.
+
 $paths->setTemplatePathAndFilename('resources/templates/base.html');
 $paths->setPartialRootPaths(['resources/partials/']);
 $paths->setLayoutRootPaths(['resources/layouts/']);
-// In this example we assign all our variables in one array. Alternative is
-// to repeatedly call $view->assign('name', 'value').
+
 $view->assignMultiple([
     'authors' => ['Dani','|','Luki','|','Gabriel'],
     'navigation' => [
@@ -49,7 +43,7 @@ $view->assignMultiple([
     'layout' => $layout
     ]
 );
-// Rendering the View: plain old rendering of single file, no bells and whistles.
+
 $output = $view->render();
 
 echo $output;
