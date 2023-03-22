@@ -6,6 +6,11 @@ use Dgl\WebtCoreViewsInMvc\HotelSeeder;
 
 $hotels = HotelSeeder::getHotels();
 
+$layout = "OneColumn";
+if (isset($_GET['Columns'])){
+    $layout = strcmp($_GET['Columns'],'1')?'TwoColumn':'OneColumn';
+}
+
 // Initializing the View: rendering in Fluid takes place through a View instance
 // which contains a RenderingContext that in turn contains things like definitions
 // of template paths, instances of variable containers and similar.
@@ -41,7 +46,7 @@ $view->assignMultiple([
         ]
     ],
     'hotels' => $hotels,
-    'layout' => 'TwoColumn'
+    'layout' => $layout
     ]
 );
 // Rendering the View: plain old rendering of single file, no bells and whistles.
